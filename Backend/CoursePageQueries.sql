@@ -42,6 +42,7 @@ total_contents NUMBER,
 block_count NUMBER,
 avg_duration NUMBER,
 intro BLOB,
+category VARCHAR2(200),
 CONSTRAINT pk_course1 PRIMARY KEY(courseid),
 CONSTRAINT fk_course1 FOREIGN KEY (author_id)
 REFERENCES	USER_INFO(user_id)	ON DELETE CASCADE
@@ -258,5 +259,4 @@ drop table TAG_LECTURE;
  drop table VIDEO CASCADE CONSTRAINTS;
  drop table LECTURE CASCADE CONSTRAINTS;
  drop table LESSON CASCADE CONSTRAINTS;
- drop table TAG CASCADE CONSTRAINTS;
 
