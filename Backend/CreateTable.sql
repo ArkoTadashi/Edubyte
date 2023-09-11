@@ -43,6 +43,7 @@ block_count NUMBER,
 avg_duration NUMBER,
 intro BLOB,
 category VARCHAR2(200),
+popularity NUMBER,
 CONSTRAINT pk_course1 PRIMARY KEY(courseid),
 CONSTRAINT fk_course1 FOREIGN KEY (author_id)
 REFERENCES	USER_INFO(user_id)	ON DELETE CASCADE
@@ -68,7 +69,7 @@ title VARCHAR(200) ,
 body VARCHAR(200),
 is_live NUMBER,
 serial NUMBER,
-n_views NUMBER,
+n_views NUMBER, ---
 lesson_count NUMBER,
 CONSTRAINT pk_lecture1 PRIMARY KEY(lecture_id),
 CONSTRAINT fk_lecture2 FOREIGN KEY (block_id)
@@ -82,7 +83,7 @@ title VARCHAR(200) ,
 body VARCHAR(200),
 is_live NUMBER,
 serial NUMBER,
-n_views NUMBER,
+n_views NUMBER, ---
 contents NUMBER,
 CONSTRAINT pk_lesson1 PRIMARY KEY(lesson_id),
 CONSTRAINT fk_lesson2 FOREIGN KEY (lecture_id)
@@ -95,7 +96,7 @@ lesson_id NUMBER ,
 title VARCHAR(200) ,
 content BLOB,
 is_live NUMBER,
-serial NUMBER,
+serial NUMBER, -- 
 n_views NUMBER,
 CONSTRAINT pk_pdf1 PRIMARY KEY(pdf_id),
 CONSTRAINT fk_pdf2 FOREIGN KEY (lesson_id)
@@ -107,11 +108,11 @@ REFERENCES	LESSON(lesson_id)	ON DELETE CASCADE
 
 CREATE TABLE VIDEO(
 video_id NUMBER NOT NULL,
-lesson_id NUMBER ,
+lesson_id NUMBER,
 title VARCHAR(200) ,
 content BLOB,
 is_live NUMBER,
-serial NUMBER,
+serial NUMBER, --
 n_views NUMBER,
 CONSTRAINT pk_video1 PRIMARY KEY(video_id),
 CONSTRAINT fk_video2 FOREIGN KEY (lesson_id)
